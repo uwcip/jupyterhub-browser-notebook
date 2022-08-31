@@ -12,7 +12,7 @@ ifneq ($(shell git status --porcelain),)
 endif
 
 # set the image name
-IMAGE_NAME := "ghcr.io/uwcip/jupyterhub-datascience-notebook"
+IMAGE_NAME := "ghcr.io/uwcip/jupyterhub-browser-notebook"
 IMAGE_ID := "${IMAGE_NAME}:${IMAGE_VERSION}"
 
 all: build
