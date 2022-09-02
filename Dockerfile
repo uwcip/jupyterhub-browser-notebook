@@ -37,8 +37,10 @@ USER ${NB_UID}
 RUN conda install --quiet --yes \
     "beautifulsoup4" \
     "dateparser" \
+    'lxml' \
     "pandas" \
     "selenium" \
+    'requests-html' \
     'undetected-chromedriver' \
     "fake-useragent" \
     'scrapy' \
