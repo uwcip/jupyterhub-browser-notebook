@@ -8,15 +8,10 @@ USER root
 # install updates and dependencies
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -q update && apt-get -y upgrade && \
-    # ffmpeg for matplotlib anim & dvipng+cm-super for latex labels
-    apt-get install -y --no-install-recommends ffmpeg dvipng cm-super && \
+    # dvipng+cm-super for latex labels
+    apt-get install -y --no-install-recommends dvipng cm-super && \
     # tesseract for OCR work
     apt-get install -y --no-install-recommends tesseract-ocr-all && \
-    # Java for Spark
-    apt-get install -y --no-install-recommends default-jdk && \
-    # NLopt (non-linear optmization) package
-    apt-get install -y --no-install-recommends libnlopt-dev && \
-    apt-get install -y --no-install-recommends libnlopt-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
     
 # install Chrome WebDriver
@@ -42,14 +37,23 @@ USER ${NB_UID}
 RUN conda install --quiet --yes \
     "beautifulsoup4" \
     "dateparser" \
-    "gensim" \
     "pandas" \
     "selenium" \
+    'undetected-chromedriver' \
     "fake-useragent" \
+    'scrapy' \
+    'pyktok' \
+    'telethon' \
+    'jusText' \
+    'newspaper3k' \
+    'trafilatura' \
     && conda clean --all -f -y \
     && fix-permissions "${CONDA_DIR}" \
     && fix-permissions "/home/${NB_USER}" \
     && true
+
+RUN pip install --quiet --yes \
+
 
 # ensure that we run the container as the notebook user
 USER ${NB_UID}
