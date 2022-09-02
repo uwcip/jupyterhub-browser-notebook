@@ -37,24 +37,22 @@ USER ${NB_UID}
 RUN conda install --quiet --yes \
     "beautifulsoup4" \
     "dateparser" \
-    'lxml' \
+    "lxml" \
     "pandas" \
     "selenium" \
-    'requests-html' \
-    'undetected-chromedriver' \
+    "requests-html" \
+    "undetected-chromedriver" \
     "fake-useragent" \
-    'scrapy' \
-    'pyktok' \
-    'telethon' \
-    'jusText' \
-    'newspaper3k' \
-    'trafilatura' \
+    "scrapy" \
+    "pyktok" \
+    "telethon" \
+    "jusText" \
+    "newspaper3k" \
+    "trafilatura" \
     && conda clean --all -f -y \
     && fix-permissions "${CONDA_DIR}" \
     && fix-permissions "/home/${NB_USER}" \
     && true
-
-RUN pip install --quiet --yes \
 
 
 # ensure that we run the container as the notebook user
