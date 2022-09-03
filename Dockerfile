@@ -41,18 +41,29 @@ RUN conda install --quiet --yes \
     "pandas" \
     "selenium" \
     "requests-html" \
-    "undetected-chromedriver" \
     "fake-useragent" \
     "scrapy" \
-    "pyktok" \
-    "telethon" \
-    "jusText" \
     "newspaper3k" \
-    "trafilatura" \
     && conda clean --all -f -y \
     && fix-permissions "${CONDA_DIR}" \
     && fix-permissions "/home/${NB_USER}" \
     && true
+    
+# install more python packages not in conda
+#  - justext
+#  - telethon
+#  - undetected-chromedriver
+#  - trafilatura
+#  - pyktok
+RUN pip install --no-cache-dir --upgrade pip && 
+    pip install --no-cache-dir --quiet --yes \
+    "pyktok" \
+    "telethon" \
+    "jusText" \
+    "undetected-chromedriver" \
+    "trafilatura" \
+    && fix-permissions "/home/${NB_USER}" \
+    && true    
 
 
 # ensure that we run the container as the notebook user
