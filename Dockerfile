@@ -55,15 +55,15 @@ RUN conda install --quiet --yes \
 #  - undetected-chromedriver
 #  - trafilatura
 #  - pyktok
-RUN pip install --no-cache-dir --upgrade pip && 
-    pip install --no-cache-dir --quiet --yes \
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install --no-cache-dir --quiet --yes \
     "pyktok" \
     "telethon" \
     "jusText" \
     "undetected-chromedriver" \
     "trafilatura" \
     && fix-permissions "/home/${NB_USER}" \
-    && true    
+    && true
 
 
 # ensure that we run the container as the notebook user
