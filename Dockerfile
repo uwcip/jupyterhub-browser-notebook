@@ -56,7 +56,7 @@ RUN conda install --quiet --yes \
 #  - trafilatura
 #  - pyktok
 RUN pip install --no-cache-dir --upgrade pip
-RUN pip install --no-cache-dir --quiet --yes \
+RUN pip install --no-cache-dir --quiet \
     "pyktok" \
     "telethon" \
     "jusText" \
