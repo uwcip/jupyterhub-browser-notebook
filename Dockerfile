@@ -8,10 +8,7 @@ USER root
 # install updates and dependencies
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -q update && apt-get -y upgrade && \
-    # dvipng+cm-super for latex labels
-    apt-get install -y --no-install-recommends dvipng cm-super && \
-    # tesseract for OCR work
-    apt-get install -y --no-install-recommends tesseract-ocr-all && \
+    apt-get install -y --no-install-recommends apt-utils && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
     
 # install Chrome WebDriver
@@ -40,7 +37,6 @@ RUN conda install --quiet --yes \
     "lxml" \
     "pandas" \
     "selenium" \
-    "requests-html" \
     "fake-useragent" \
     "scrapy" \
     "newspaper3k" \
@@ -56,12 +52,13 @@ RUN conda install --quiet --yes \
 #  - trafilatura
 #  - pyktok
 RUN pip install --no-cache-dir --upgrade pip
-RUN pip install --no-cache-dir --quiet \
+RUN pip install --no-cache-dir \
     "pyktok" \
     "telethon" \
     "jusText" \
     "undetected-chromedriver" \
     "trafilatura" \
+    "requests-html" \    
     && fix-permissions "/home/${NB_USER}" \
     && true
 
