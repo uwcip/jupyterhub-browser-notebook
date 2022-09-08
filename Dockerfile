@@ -53,12 +53,14 @@ RUN conda install --quiet --yes \
 #  - pyktok
 RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir \
+    "requests-html" \    
+    "browser_cookie3" \    
     "pyktok" \
     "telethon" \
     "jusText" \
     "undetected-chromedriver" \
     "trafilatura" \
-    "requests-html" \    
+    "jupyterlab_scheduler" \
     && fix-permissions "/home/${NB_USER}" \
     && true
 
