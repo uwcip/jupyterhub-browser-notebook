@@ -1,4 +1,4 @@
-FROM ghcr.io/uwcip/jupyterhub-base-notebook:v1.8.3
+FROM ghcr.io/uwcip/jupyterhub-base-notebook:v1.8.4
 
 # github metadata
 LABEL org.opencontainers.image.source=https://github.com/uwcip/jupyterhub-browser-notebook
