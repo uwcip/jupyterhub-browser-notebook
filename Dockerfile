@@ -60,7 +60,7 @@ RUN pip install --no-cache-dir \
     "jusText" \
     "undetected-chromedriver" \
     "trafilatura" \
-    "jupyterlab_scheduler" \
+#    "jupyterlab_scheduler" \
     && fix-permissions "/home/${NB_USER}" \
     && true
 
